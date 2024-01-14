@@ -13,17 +13,17 @@ interface State {
   reset: () => void
 }
 
-const loggerMiddleware = (config) => (set, get, api) => {
-  return config(
-    (...args) => {
-      console.log('applying', args)
-      set(...args) // original
-      console.log('new state')
-    },
-    get,
-    api
-  )
-}
+// const loggerMiddleware = (config) => (set, get, api) => {
+//   return config(
+//     (...args) => {
+//       console.log('applying', args)
+//       set(...args) // original
+//       console.log('new state')
+//     },
+//     get,
+//     api
+//   )
+// }
 
 
 export const useQuestionsStore = create<State>()(devtools(persist((set, get) => ({ // estos son middlewares
